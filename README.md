@@ -51,54 +51,65 @@ Figures and tables are labeled by number and content:
 
 Invertebrate ID Key
 
-Alderfly Megaloptera	Sialidae		Larvae	Predator	0.0037	2.753	
-Ant	Hymenoptera	Formicidae		Adult	Unknown	0.56	1.56	
-Aphid 	Hemiptera	Aphididae		Nymph	Piercer-herbivore	0.005	3.33	
-Aquatic earthworm	Annelida	Oligochaeta		Adult	Collector-gatherer	0.008	1.888	
-Biting midge	Diptera	Ceratopogonidae		Adult	Predator	0.1	1.57	
-Biting midge	Diptera	Ceratopogonidae		Larvae	Predator	0.025	2.469	
-Black fly	Diptera	Simuliidae		Adult	Collector-filterer	0.006	3.05	
-Black fly	Diptera	Simuliidae		Larvae	Collector-filterer	0.002	3.011	
-Northern casemaker caddisfly	Trichoptera	Limnephilidae		Larvae	Shredder	0.004	2.933	
-Case maker caddisfly	Trichoptera	Uenoidae		Larvae	Scraper	0.0056	2.839	
-Case maker caddisfly	Trichoptera	Lepidostomatidae		Larvae	Scraper	0.0079	2.649	
-Common skimmer	Odonata	Libellulidae		Larvae	Predator	0.0078	2.792	Used Order for a, and b.
-Cranefly	Diptera	Tipulidae		Larvae	Shredder	0.0029	2.681	
-Darkling beetle	Coleoptera	Tenebrionidae		Adult	Detritivore	0.0513	2.669	
-Darkling beetle	Coleoptera	Tenebrionidae		Larvae	Detritivore	0.0513	2.669	
-Finger-net caddisfly	Trichoptera	Philopotomidae		Larvae	Collector-filterer	0.005	2.511	
-Flat-headed mayfly	Ephemeroptera	Heptagenniidae		Nymph	Scaper	0.0108	2.754	
-Free living caddisfly	Trichoptera	Rhyacophilidae		Larvae	Predator	0.0099	2.48	
-Fungus nats and Gull midges	Diptera	Sciaridae		Larvae	Fungivore			
-Giant stonefly	Plecoptera	Pteronarcyidae		Nymph	Shredder	0.0324	2.573	
-Golden stonefly	Plecoptera	Perlidae		Nymph	Predator	0.0099	2.879	
-Humpless case maker caddisfly	Trichoptera	Brachycentridae		Larvae	Shredder-collector	0.0083	2.818	
-Leaf hopper	Hemiptera	Cicadellidae		Adult	Piercer-herbivore	0.0079	2.229	
-Little brown stonefly	Plecoptera	Nemouridae		Nymph	Shredder	0.0056	2.762	
-Little green stonefly	Plecoptera	Chloroperlidae		Nymph	Predator	0.0065	2.724	
-Midge	Diptera	Chironomidae		Larvae	Collector-filterer	0.005098	2.32	
-Midge	Diptera	Chironomidae		Adult	Collector-filterer	0.006	3.05	
-Minute pirate bug	Hemiptera	Anthocoridae		Adult	Piercer-herbivore			
-Mosquito	Diptera	Culicidae		Adult	Predator	0.006	3.035	
-Moth fly	Diptera	Psychodidae	Maruini	Larvae	Detritivore	0.0025	2.692	
-Nematode	Nemotoda	NA		Larvae	Predator	0.0758	0.75	
-Net-spinner caddisfly	Trichoptera	Hydropsychidae		Larvae	Collector-filterer	0.0046	2.926	
-Northern case-maker caddisfly	Trichoptera	Limnephilidae		Larvae	Shredder	0.004	2.933	
-Pea clam	Mollusca	Bivalvia		Adult				
-Prong-gilled mayfly	Ephemeroptera	Leptophlebiidae	Neoleptophlebia	Nymph	Collector-gatherer	0.0047	2.686	
-Psyllid	Hemiptera	Psyllidae		Adult	Piercer-herbivore	0.0123	2.995	
-Purse-case maker caddisfly	Trichoptera	Hydroptilidae		Larvae	Scraper	0.0056	2.839	
-Riffle beetle	Coleoptera	Elmidae	Cleptelmis	Larvae	Collector-gatherer	0.152896	2.18	
-Riffle beetle 	Coleoptera	Elmidae	Cleptelmis	Adult	Scraper	0.152896	2.18	
-Roach-like stonefly	Plecoptera	Peltoperlidae		Larvae	Shredder	0.017	2.737	
-Rolled-wing stonefly	Plecoptera	Leuctridae		Nymph	Shredder	0.0028	2.719	
-Small minnow mayfly	Ephemeroptera	Baetidae		Larvae	Collector-gatherer	0.0053	2.87	
-Spiny crawler mayfly	Ephemeroptera	Ephemerellidae	Drunella	Larvae	Collector-gatherer	0.0103	2.676	
-Thrip	Thysanoptera	Thripidae		Adult	Piercer-herbivore	0.0071	2.537	
-Vinegar and fruit fly	Diptera	Drosophilidae		Adult	Piercer-herbivore	0.0025	2.692	
-Water mite	Arachnida	Hyrdachnidia		Adult	Predator-Scavanger	0.132655	1.66	
-Water penny	Coleoptera	Psephenidae		Adult	Scraper	0.0123	2.906	
-Water scavenger beetle	Coleoptera	Hydrophilidae		Adult	Collector-gatherer	0.0074	2.879	
+Order	Family	Genus	Functional Group	a	b
+Megaloptera	Sialidae		Predator	0.003700000	2.753
+Hymenoptera	Formicidae		Unknown	0.560000000	1.56
+Hemiptera	Aphididae		Piercer-herbivore	0.005000000	3.33
+Annelida	Oligochaeta		Collector-gatherer	0.008000000	1.888
+Diptera	Empididae		Predator	0.006000000	3.05
+Diptera	Ceratopogonidae		Predator	0.100000000	1.57
+Diptera	Ceratopogonidae		Predator	0.025000000	2.469
+Diptera	Simuliidae		Collector-filterer	0.006000000	3.05
+Diptera	Simuliidae		Collector-filterer	0.002000000	3.011
+Trichoptera	Uenoidae		Scraper	0.005600000	2.839
+Trichoptera	Lepidostomatidae		Scraper	0.007900000	2.649
+Odonata	Libellulidae		Predator	0.007800000	2.792
+Diptera	Tipulidae		Shredder	0.002900000	2.681
+Coleoptera	Chrysomelidae		Defoliator	0.025800000	3.083
+Coleoptera	Tenebrionidae		Detritivore	0.051300000	2.669
+Coleoptera	Tenebrionidae		Detritivore	0.051300000	2.669
+Diptera	Dixidae		Collector-gatherer	0.002500000	2.692
+Trichoptera	Philopotomidae		Collector-filterer	0.005000000	2.511
+Ephemeroptera	Heptagenniidae		Scaper	0.010800000	2.754
+Trichoptera	Rhyacophilidae		Predator	0.009900000	2.48
+Diptera	Sciaridae		Fungivore	0.002500000	2.692
+Plecoptera	Pteronarcyidae		Shredder	0.032400000	2.573
+Plecoptera	Perlidae		Predator	0.009900000	2.879
+Trichoptera	Brachycentridae		Shredder-collector	0.008300000	2.818
+Hemiptera	Cicadellidae		Piercer-herbivore	0.007900000	2.229
+Plecoptera	Nemouridae		Shredder	0.005600000	2.762
+Plecoptera	Chloroperlidae		Predator	0.006500000	2.724
+Diptera	Chironomidae		Collector-filterer	0.005097526	2.32
+Diptera	Chironomidae		Collector-filterer	0.005097526	3.05
+Hemiptera	Anthocoridae		Piercer-herbivore	0.034100000	2.688
+Diptera	Culicidae		Predator	0.006000000	3.05
+Diptera	Psychodidae	Maruini	Detritivore	0.002500000	2.692
+Nemotoda	NA		Predator	0.075800000	0.75
+Trichoptera	Hydropsychidae		Collector-filterer	0.004600000	2.926
+Trichoptera	Limnephilidae		Shredder	0.004000000	2.933
+Trichoptera	Limnephilidae		Shredder	0.004000000	2.933
+Mollusca	Bivalvia				
+Ephemeroptera	Leptophlebiidae	Neoleptophlebia	Collector-gatherer	0.004700000	2.686
+Hemiptera	Psyllidae		Piercer-herbivore	0.012300000	2.995
+Trichoptera	Hydroptilidae		Scraper	0.005600000	2.839
+Coleoptera	Elmidae	Cleptelmis	Collector-gatherer	0.007400000	2.879
+Coleoptera	Elmidae	Cleptelmis	Scraper	0.152895591	2.18
+Plecoptera	Peltoperlidae		Shredder	0.017000000	2.737
+Plecoptera	Leuctridae		Shredder	0.002800000	2.719
+Trichoptera	Glossosomatidae		Scraper	0.008200000	2.958
+Ephemeroptera	Baetidae		Collector-gatherer	0.005300000	2.87
+Ephemeroptera	Ephemerellidae	Drunella	Collector-gatherer	0.010300000	2.676
+Thysanoptera	Thripidae		Piercer-herbivore	0.007100000	2.537
+Diptera	Drosophilidae		Piercer-herbivore	0.006000000	3.05
+Arachnida	Hyrdachnidia		Predator-Scavanger	0.132655465	1.66
+Coleoptera	Psephenidae		Scraper	0.012300000	2.906
+Coleoptera	Hydrophilidae		Collector-gatherer	0.007400000	2.879
+Coleoptera	Coccinellidae		Predator	0.033800000	2.162
+Megaloptera	Corydalidae		Predator	0.003700000	2.873
+Collembola	Isotomidae		Detritivore	0.005600000	2.809
+Coleoptera	Dytiscidae 		Predator	0.152895591	2.18
+Arachnida	Lycosidae		Predator	0.050000000	2.74
+Hemiptera	Lygaeidae		Piercer-herbivore	0.034100000	2.688
 
 Software Requirements
 
