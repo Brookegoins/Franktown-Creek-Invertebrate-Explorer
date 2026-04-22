@@ -145,6 +145,10 @@ sort(unique(raw$common_name_clean))
 #She looks beautiful 🥹🥹🥹🥹🥹
 
 
+#Weird row here after QAQCing, have to remove
+raw <- raw %>%
+  filter(method != "Aquatic")
+
 #Now that we have all our column names nice and perrty we can use that as our foreign key as well as 
 #the life stage so we can make sure every entry is input correctly🤞🤞🤞
 #We gonna have to use the handy dandy "LEFT Join" situation taught in class much much earler
