@@ -1,36 +1,40 @@
 # app.R
 # Sierra Nevada Headwater Stream Invertebrate Explorer
 
-#Load zee packages
+###################################################
+# Load zee packages
+###################################################
 library(shiny)
 library(ggplot2)
 library(dplyr)
 library(readr)
 library(DT)
 library(scales)
+library(bslib)
 
-
+###################################################
 # Import zee data
+###################################################
 datum <- read_csv("data/bug_clean")
 
-# convert to factors + make season + prettier reach labels
+###################################################
+# Clean + prep zee data
+###################################################
 datum <- datum %>%
   mutate(
-    source_of_production = as.factor(source_of_production),  
-    method               = as.factor(method),                
+    source_of_production = as.factor(source_of_production),
+    method               = as.factor(method),
     family               = as.factor(family),
     functional_group     = as.factor(functional_group),
     life_stage           = as.factor(life_stage),
     order                = as.factor(order),
     
-    # season labels from sampling dates
     season = case_when(
       format(field_date, "%m") %in% c("06","07","08") ~ "Summer",
       format(field_date, "%m") %in% c("09","10","11") ~ "Fall",
       TRUE ~ "Other"
     ),
     
-    # prettier reach labels
     reach_label = case_when(
       reach == 1 ~ "1 - Downstream",
       reach == 2 ~ "2 - Treatment",
@@ -39,19 +43,35 @@ datum <- datum %>%
     )
   )
 
-################################################################
+###################################################
 # userinterface "ui"
-################################################################
+###################################################
 ui <- fluidPage(
   
-  titlePanel("Sierra Nevada Invertebrate Explorer"),
+  theme = bs_theme(
+    version = 5,
+    bootswatch = "flatly",
+    primary = "#2C6E49"
+  ),
+  
+  titlePanel(
+    div(
+      style = "text-align:center;",
+      h1("Sierra Nevada Invertebrate Explorer"),
+      h4("Franktown Creek Macroinvertebrate Dashboard")
+    )
+  ),
   
   sidebarLayout(
     
+    ###################################################
+    # Sidebar
+    ###################################################
     sidebarPanel(
       width = 3,
       
-      h4("Filters"),
+      h3("Filters"),
+      hr(),
       
       selectInput(
         "method",
@@ -107,74 +127,96 @@ ui <- fluidPage(
       )
     ),
     
+    ###################################################
+    # Main panel
+    ###################################################
     mainPanel(
       width = 9,
       
       tabsetPanel(
-        #############
-        #Making Tab 1 - Overview 
-        #############
+        
+        ###################################################
+        # Tab 1 Overview
+        ###################################################
         tabPanel(
           "Overview",
           
           br(),
           
           fluidRow(
-            column(3, wellPanel(
-              h5("Total Specimens"),
-              textOutput("n_total")
-            )),
             
-            column(3, wellPanel(
-              h5("Families"),
-              textOutput("n_family")
-            )),
+            column(
+              3,
+              wellPanel(
+                style="background:#2C6E49; color:white;",
+                h5("Total Specimens"),
+                h3(textOutput("n_total"))
+              )
+            ),
             
-            column(3, wellPanel(
-              h5("Mean Length"),
-              textOutput("mean_len")
-            )),
+            column(
+              3,
+              wellPanel(
+                style="background:#4C956C; color:white;",
+                h5("Families"),
+                h3(textOutput("n_family"))
+              )
+            ),
             
-            column(3, wellPanel(
-              h5("Aquatic %"),
-              textOutput("aq_pct")
-            ))
+            column(
+              3,
+              wellPanel(
+                style="background:#6C757D; color:white;",
+                h5("Mean Length"),
+                h3(textOutput("mean_len"))
+              )
+            ),
+            
+            column(
+              3,
+              wellPanel(
+                style="background:#198754; color:white;",
+                h5("Aquatic %"),
+                h3(textOutput("aq_pct"))
+              )
+            )
           ),
           
           br(),
-          plotOutput("overview_bar", height = "400px")
+          
+          plotOutput("overview_bar", height = "450px")
         ),
         
-        #############
-        #Tab 2 - Taxa
-        #############
+        ###################################################
+        # Tab 2 Taxa
+        ###################################################
         tabPanel(
           "Taxa",
           br(),
-          plotOutput("family_plot", height = "500px")
+          plotOutput("family_plot", height = "550px")
         ),
         
-        #############
-        #Tab 3 - feeding groups
-        #############
+        ###################################################
+        # Tab 3 Feeding Groups
+        ###################################################
         tabPanel(
           "Feeding Groups",
           br(),
-          plotOutput("feed_plot", height = "500px")
+          plotOutput("feed_plot", height = "550px")
         ),
         
-        #############
-        # Tab 4 - body size
-        #############
+        ###################################################
+        # Tab 4 Body Size
+        ###################################################
         tabPanel(
           "Body Size",
           br(),
-          plotOutput("size_plot", height = "500px")
+          plotOutput("size_plot", height = "550px")
         ),
         
-        #############
-        # Tab 5 - data table
-        #############
+        ###################################################
+        # Tab 5 Data Table
+        ###################################################
         tabPanel(
           "Data Table",
           br(),
@@ -186,11 +228,13 @@ ui <- fluidPage(
 )
 
 ###################################################
-#Make that server man 
+# Make that server man
 ###################################################
 server <- function(input, output, session) {
   
-  #filtering
+  ###################################################
+  # filtering
+  ###################################################
   filtered <- reactive({
     
     d <- datum
@@ -229,9 +273,8 @@ server <- function(input, output, session) {
   })
   
   ###################################################
-  #summary time 😌
+  # summary time 😌
   ###################################################
-  
   output$n_total <- renderText({
     nrow(filtered())
   })
@@ -241,27 +284,25 @@ server <- function(input, output, session) {
   })
   
   output$mean_len <- renderText({
-    paste0(round(mean(filtered()$length, na.rm = TRUE), 2), " mm")
+    paste0(round(mean(filtered()$length, na.rm = TRUE),2), " mm")
   })
   
   output$aq_pct <- renderText({
     d <- filtered()
     pct <- mean(d$source_of_production == "Aquatic", na.rm = TRUE) * 100
-    paste0(round(pct, 1), "%")
+    paste0(round(pct,1), "%")
   })
   
   ###################################################
-  #Tab 1 - 📊
+  # Tab 1 - overview
   ###################################################
-  
   output$overview_bar <- renderPlot({
     
-    d <- filtered()
-    
-    ggplot(d, aes(method, fill = source_of_production)) +
+    ggplot(filtered(), aes(method, fill = source_of_production)) +
       geom_bar(position = "dodge") +
-      theme_classic(base_size = 14) +
+      theme_classic(base_size = 15) +
       labs(
+        title = "Specimen Counts by Sampling Method",
         x = "Sampling Method",
         y = "Count",
         fill = "Habitat"
@@ -269,9 +310,8 @@ server <- function(input, output, session) {
   })
   
   ###################################################
-  #Tab 2 - 🐞
+  # Tab 2 - 🐞🐛
   ###################################################
-  
   output$family_plot <- renderPlot({
     
     d <- filtered() %>%
@@ -281,60 +321,60 @@ server <- function(input, output, session) {
     ggplot(d, aes(reorder(family, n), n)) +
       geom_col(fill = "steelblue") +
       coord_flip() +
-      theme_classic(base_size = 14) +
+      theme_classic(base_size = 15) +
       labs(
+        title = "Top 15 Families",
         x = "Family",
         y = "Abundance"
       )
   })
   
   ###################################################
-  #Tab - 3 🍔
+  # Tab 3 - 🍔
   ###################################################
-  
   output$feed_plot <- renderPlot({
     
-    d <- filtered()
-    
-    ggplot(d, aes(method, fill = functional_group)) +
+    ggplot(filtered(), aes(method, fill = functional_group)) +
       geom_bar(position = "fill") +
       scale_y_continuous(labels = percent) +
-      theme_classic(base_size = 14) +
+      theme_classic(base_size = 15) +
       labs(
+        title = "Functional Feeding Groups by Method",
         x = "Method",
         y = "Proportion",
-        fill = "Functional Group"
+        fill = "Group"
       )
   })
   
   ###################################################
-  # Tab 4 - 🧍📏
+  # Tab 4 - 📏
   ###################################################
-  
   output$size_plot <- renderPlot({
     
-    d <- filtered()
-    
-    ggplot(d, aes(source_of_production, length, fill = source_of_production)) +
+    ggplot(filtered(),
+           aes(source_of_production, length, fill = source_of_production)) +
       geom_boxplot(alpha = 0.8) +
-      theme_classic(base_size = 14) +
+      theme_classic(base_size = 15) +
       labs(
+        title = "Body Size by Habitat Type",
         x = "Habitat Type",
         y = "Length (mm)"
       )
   })
   
   ###################################################
-  # Tab 5 - 📉
+  # Tab 5 - 📊
   ###################################################
-  
   output$table <- renderDT({
-    datatable(filtered(), options = list(pageLength = 15))
+    datatable(
+      filtered(),
+      options = list(pageLength = 15, scrollX = TRUE)
+    )
   })
   
 }
 
 ###################################################
-#Runz zee app 
+# Runz zee app
 ###################################################
 shinyApp(ui, server)
