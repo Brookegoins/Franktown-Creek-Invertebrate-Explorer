@@ -8,7 +8,7 @@ editor_options:
 
 ## **Interactive Shiny Dashboard for Macroinvertebrate Community Analysis in a Sierra Nevada Headwater Stream**
 
-### Shiny App description 
+### Shiny App description
 
 The Franktown Creek Invertebrate Explorer is an interactive Shiny
 application designed to explore aquatic and terrestrial
@@ -23,10 +23,10 @@ composition, and spatial variation in a headwater stream system. The
 dashboard is intended for use in **ecological research, teaching, and
 exploratory/monitoring stream applications.**
 
-### Research Context 
+### Research Context
 
-Riparian thinning is widely implemented in Sierra Nevada forests to
-reduce wildfire risk, yet its effects on stream macroinvertebrate
+Riparian canopy removal is widely implemented in Sierra Nevada forests
+to reduce wildfire risk, yet its effects on stream macroinvertebrate
 communities remain insufficiently understood. Because aquatic and
 terrestrial invertebrates are key components of headwater stream food
 webs, changes in riparian canopy structure may alter community
@@ -53,9 +53,9 @@ understanding of how riparian thinning influences macroinvertebrate
 community organization and aquatic–terrestrial linkages in headwater
 stream ecosystems.
 
-### Project Objectives 
+### Project Objectives
 
-#### Scientific & Analytical Goals 
+#### Scientific & Analytical Goals
 
 -   Explore macroinvertebrate community structure across sampling
     methods (e.g., surber, drift nets, pan traps)
@@ -70,25 +70,36 @@ stream ecosystems.
 -   Provide a transparent interface for ecological exploration and
     hypothesis generation
 
-#### R Programming 
+### Requirements
 
--   Modular data wrangling using dplyr
+This Shiny application requires the following R packages. Each package
+supports specific functionality within the invertebrate explorer
+dashboard:
 
--   Reactive filtering pipeline within Shiny
+-   **shiny** - Builds the interactive web application framework,
+    including UI components and server logic.
 
--   Reusable transformations for ecological summaries
+-   **ggplot2** - Creates static data visualizations such as bar plots,
+    summary plots, and ecological comparisons.
 
--   Dynamic Product
+-   **dplyr** - Provides data manipulation tools used for filtering,
+    summarizing, grouping, and transforming the invertebrate dataset.
 
--   Fully interactive Shiny application
+-   **readr** - Imports the raw CSV data file into R efficiently.
 
--   Real-time filtering of ecological data
+-   **DT** - Generates interactive data tables for exploring and
+    downloading filtered datasets.
 
--   Linked visualizations and summary statistics
+-   **scales** - Assists with formatting axes and values in plots (e.g.,
+    percentages).
 
--   Downloadable filtered data sets
+-   **bslib** - Applies Bootstrap 5 theming to improve the visual
+    styling and layout of the Shiny app.
 
-### **Shiny Application Structure** 
+-   **plotly** - Converts ggplot visualizations into interactive plots
+    with hover tooltips and dynamic features.
+
+### **Shiny Application Structure**
 
 The dashboard is organized into five interactive tabs:
 
@@ -110,7 +121,7 @@ CSV downloads Data transparency and validation tools
 
 🔑 Family Key - ID Key to families sampled
 
-### **Data Sources** 
+### **Data Sources**
 
 The dataset includes curated macroinvertebrate observations from
 Franktown Creek, including:
@@ -132,14 +143,14 @@ Franktown Creek, including:
 -   All data are pre-processed to ensure consistency prior to
     integration into the Shiny application.
 
-### **This tool is designed for:** 
+### **This tool is designed for:**
 
 Ecological data exploration and hypothesis generation Stream ecology
 research and teaching Comparative analysis of sampling methods
 Undergraduate and graduate-level training in macroinvertebrate ecology
 Long-term monitoring of headwater stream ecosystems.
 
-### **Authors** 
+### **Authors**
 
 Brooke Goins University of Nevada, Reno
 
@@ -153,7 +164,7 @@ Tanner Morgan University of Nevada, Reno
 
 For questions about this project or the Shiny application:
 
-Brooke Goins University of Nevada, Reno
+Brooke Goins, University of Nevada, Reno
 
 [brookegoins\@unr.edu](mailto:brookegoins@unr.edu){.email}
 
