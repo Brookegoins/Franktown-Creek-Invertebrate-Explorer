@@ -1,92 +1,99 @@
 #Franktown-Creek-Invertebrate-Explorer
 
-Interactive Shiny Dashboard for Exploring Aquatic and Terrestrial Invertebrate Communities in a Sierra Nevada Headwater Stream
+Interactive Shiny Dashboard for Macroinvertebrate Community Analysis in a Sierra Nevada Headwater Stream
+
 Project Overview
+The Franktown Creek Invertebrate Explorer is an interactive Shiny application designed to explore aquatic and terrestrial macroinvertebrate communities collected from Franktown Creek within Whittell Forest, a property own by the University of Nevada, Reno.
+This tool supports exploratory ecological analysis by allowing users to dynamically filter, summarize, and visualize invertebrate community data across sampling methods, habitats, reaches, and seasons. Rather than producing static outputs, this application enables interactive investigation of community structure, functional composition, and spatial variation in a headwater stream system.
+The dashboard is intended for use in ecological research, teaching, and exploratory/monitoring stream applications.
 
-This project develops an interactive Shiny web application for exploring aquatic and terrestrial macroinvertebrate communities collected from Franktown Creek within Whittell Forest (Sierra Nevada, NV).
-Rather than focusing solely on static analysis outputs, this workflow is designed to support an exploratory, user-driven interface that allows researchers to dynamically filter, summarize, and visualize macroinvertebrate community data across space, time, and sampling methods.
-The final product will be a Headwater Invertebrate Explorer dashboard that enables rapid ecological assessment and comparison of community structure across multiple sampling designs and environmental contexts.
-The app is intended for use in research, education, and long-term ecological monitoring applications.
+Research Context
+Headwater stream ecosystems are highly sensitive to environmental change and provide important insights into biodiversity, food web structure, and ecosystem functioning. This project supports the analysis of macroinvertebrate communities across aquatic and terrestrial interfaces, with emphasis on how sampling method, reach, and habitat influence observed community structure.
 
-Project Goals and Objectives
-This project is designed to support interactive ecological exploration of macroinvertebrate communities. The primary objectives are to:
-Develop a Shiny dashboard for intuitive exploration of aquatic and terrestrial invertebrate data
-Enable filtering of observations by sampling method, habitat type, taxonomic group, and temporal variables
-Visualize differences in community composition across sampling techniques (e.g., Surber, drift net, pan trap)
-Summarize functional feeding group structure across habitats and seasons
-Examine size structure and distribution patterns across taxa and environments
-Provide a searchable, transparent interface for accessing cleaned macroinvertebrate records
-Support ecological interpretation of community patterns in a Sierra Nevada headwater stream system
+Project Objectives
+Scientific & Analytical Goals
+Explore macroinvertebrate community structure across sampling methods (e.g., surber, drift nets, pan traps)
+Compare community composition across stream reaches and habitats
+Evaluate functional feeding group structure across spatial and environmental gradients
+Examine body size distributions across taxa and sampling contexts
+Provide a transparent interface for ecological exploration and hypothesis generation
 
-Dashboard Structure (Planned Tabs)
-The application will be organized into five interactive tabs:
+R Programming
+Modular data wrangling using dplyr
+Reactive filtering pipeline within Shiny
+Reusable transformations for ecological summaries
+Dynamic Product
+Fully interactive Shiny application
+Real-time filtering of ecological data
+Linked visualizations and summary statistics
+Downloadable filtered datasets
 
-Tab 1: Overview Dashboard
-Provides a high-level summary of community structure, including:
-Total specimen count
-Number of families represented
-Mean body length
-Proportion of aquatic vs terrestrial organisms
+Shiny Application Structure
+The dashboard is organized into five interactive tabs:
+🐛 Overview Dashboard
+Total specimens
+Number of families
+Mean body size
+Aquatic vs terrestrial proportions
+Summary visualization of sampling method composition
+🌎 Taxonomic Explorer
+Family-level community composition
+Reach-based comparisons
+Summary statistics for selected taxa
+🤲 Reach Comparisons
+Richness and abundance by stream reach
+Dominant families by reach
+Spatial community differences
+🕸 Functional Feeding Groups
+Proportional representation of feeding guilds
+Comparison across reaches
+Ecosystem function interpretation
+📊 Data Explorer & Downloads
+Filtered raw dataset viewer
+Exportable CSV downloads
+Data transparency and validation tools
 
-Tab 2: Taxonomic Composition
-Explores taxonomic structure across sampling contexts:
-Bar plots of top families collected
-Comparisons across sampling methods
-Optional seasonal or temporal breakdowns
-
-Tab 3: Functional Feeding Groups
-Examines ecosystem functional structure:
-Stacked bar charts of feeding groups (predators, shredders, collectors, scrapers)
-Comparisons by sampling method, habitat, or season
-Relative contribution of functional groups to community composition
-
-Tab 4: Size Distributions
-Visualizes organism body size structure:
-Histograms and boxplots of body length distributions
-Comparisons by family, sampling method, and habitat type
-Aquatic vs terrestrial size structure comparisons
-
-Tab 5: Raw Data Explorer
-A searchable, filterable table of cleaned macroinvertebrate records:
-Full dataset access with filtering capabilities
-Supports validation and exploration of individual records
-Export-ready format for downstream analysis
-
-Data Sources and Inputs
-This application is built from curated macroinvertebrate datasets collected in Franktown Creek. Data include:
-Aquatic benthic samples (e.g., Surber sampling)
+Data Sources
+The dataset includes curated macroinvertebrate observations from Franktown Creek, including:
+Aquatic benthic samples (Surber sampling)
 Drift net collections
-Terrestrial invertebrate samples (e.g., pan traps)
-Taxonomic classifications (family-level and where available genus-level)
+Terrestrial pan trap samples
+Taxonomic identification (primarily family-level)
 Functional feeding group assignments
-Morphological measurements (e.g., body length)
-Temporal metadata (date/season)
-All data are pre-processed prior to integration into the Shiny application to ensure consistency and analytical reliability.
-
-Intended Use
+Morphological measurements (body length)
+Temporal sampling metadata (date, season)
+Spatial metadata (reach classification)
+All data are pre-processed to ensure consistency prior to integration into the Shiny application.
 This tool is designed for:
 Ecological data exploration and hypothesis generation
+Stream ecology research and teaching
 Comparative analysis of sampling methods
-Teaching and training in aquatic ecology and macroinvertebrate identification
-Supporting thesis and manuscript-level analyses
-Long-term monitoring and assessment of headwater stream ecosystems
+Undergraduate and graduate-level training in macroinvertebrate ecology
+Long-term monitoring of headwater stream ecosystems
 
 Authors
 Brooke Goins
 University of Nevada, Reno
-
 Jeff Falke
 University of Nevada, Reno
-
 Mark Kolwyck
 University of Nevada, Reno
-
 Tanner Morgan
 University of Nevada, Reno
 
+Course Information
+This project was developed for:
+NRES 701B – Reproducible Data Science in Natural Resources
+Spring Semester
+The project demonstrates applied skills in:
+R programming
+Shiny application development
+Data cleaning and transformation
+Reproducible research workflows
+Ecological data visualization
+
 Contact
-For questions regarding this project or the Shiny application:
+For questions about this project or the Shiny application:
 Brooke Goins
 University of Nevada, Reno
 brookegoins@unr.edu
-
