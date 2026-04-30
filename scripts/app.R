@@ -182,6 +182,7 @@ ui <- fluidPage(
   )
 )
 
+#REACTIVE SERVER WHICH CHANGES BASED ON INPUTS LIKE SLIDER BAR 
 server <- function(input, output, session) {
   
   filtered <- reactive({
@@ -235,7 +236,7 @@ server <- function(input, output, session) {
                         "Terrestrial", na.rm = TRUE) * 100, 1), "%")
   )
   
-  # OVERVIEW PLOTLY STACKED BAR
+  #TAB PLOTS
   output$overview_plot <- renderPlotly({
     
     p <- ggplot(
@@ -414,4 +415,5 @@ server <- function(input, output, session) {
   })
 }
 
+#LOAD THE APP
 shinyApp(ui, server)
